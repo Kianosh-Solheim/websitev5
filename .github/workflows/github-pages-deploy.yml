@@ -1,0 +1,45 @@
+name: “Build and Deploy to GitHub Pages”
+
+on:
+  push:
+    branches:
+      - main       # <-- Adjust if your default branch is named something else
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Check out the repo’s code
+      - name: “Checkout repository”
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false    # so we don’t use a PAT
+
+      # 2) Use Node.js (v18.x) 
+      - name: “Setup Node.js”
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3) Install dependencies  
+      - name: “Install dependencies”
+        run: |
+          npm ci
+
+      # 4) Build the React app  
+      - name: “Run build”
+        run: |
+          npm run build
+
+      # 5) Deploy to GitHub Pages  
+      - name: “Deploy to GitHub Pages”
+        uses: actions/configure-pages@v4
+
+      - name: “Upload artifact: build/”
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: build
+
+      - name: “Publish to GitHub Pages”
+        uses: actions/deploy-pages@v2
