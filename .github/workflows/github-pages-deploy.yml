@@ -1,10 +1,10 @@
-# File: .github/workflows/github-pages-deploy.yml
+# Updated Workflow File: .github/workflows/github-pages-deploy.yml
 name: "Build and Deploy to GitHub Pages"
 
 on:
   push:
     branches:
-      - main  # Change this if your default branch has a different name
+      - main
 
 jobs:
   build-and-deploy:
