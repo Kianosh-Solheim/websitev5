@@ -1,0 +1,48 @@
+# File: .github/workflows/github-pages-deploy.yml
+name: "Build and Deploy to GitHub Pages"
+
+on:
+  push:
+    branches:
+      - main  # <-- change this if your default branch is named differently
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Check out the repository’s code
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      # 2) Set up Node.js (v18.x)
+      - name: "Setup Node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3) Install dependencies
+      - name: "Install dependencies"
+        run: |
+          npm ci
+
+      # 4) Build the React app
+      - name: "Run build"
+        run: |
+          npm run build
+
+      # 5) Configure GitHub Pages
+      - name: "Deploy to GitHub Pages"
+        uses: actions/configure-pages@v4
+
+      # 6) Upload the build/ folder as a Pages artifact
+      - name: "Upload artifact: build/"
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: build
+
+      # 7) Publish to GitHub Pages
+      - name: "Publish to GitHub Pages"
+        uses: actions/deploy-pages@v2
