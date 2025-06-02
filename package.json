@@ -2,7 +2,7 @@
   "name": "websitev5",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://solheim.online",
+  "homepage": "https://www.solheim.online/",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
