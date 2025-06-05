@@ -1,3 +1,4 @@
+/* global grecaptcha */
 import React, { useState, useEffect, useCallback, createContext, useContext, useRef } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useNavigate, Navigate, useLocation } from 'react-router-dom';
 import { getFirestore, collection, addDoc, deleteDoc, doc, updateDoc, onSnapshot, setDoc, getDoc } from 'firebase/firestore';
