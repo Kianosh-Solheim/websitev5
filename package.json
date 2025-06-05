@@ -2,7 +2,7 @@
   "name": "websitev5",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kianosh-solheim.github.io/websitev5",
+  "homepage": "https://solheim.online",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -11,7 +11,7 @@
     "firebase": "^11.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.1",
+    "react-router-dom": "^6.14.2",
     "react-scripts": "^3.0.1",
     "web-vitals": "^2.1.4"
   },
